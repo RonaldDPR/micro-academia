@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro-Academia | Prototipo funcional</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand-mini">MA</div>
+    <a href="#inicio" class="side-link active">Inicio</a>
+    <a href="#diagnostico" class="side-link">Diagnóstico</a>
+    <a href="#dashboard" class="side-link">Dashboard</a>
+    <a href="#microcredenciales" class="side-link">Módulos</a>
+    <a href="#sandbox" class="side-link">Sandbox</a>
+    <a href="#integracion" class="side-link">Integración</a>
+    <a href="#admin" class="side-link">Admin</a>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Prototipo funcional</span>
+        <h1>Micro-Academia</h1>
+        <p>Plataforma de microcredenciales para docentes universitarios de Ing. Civil.</p>
+      </div>
+      <div class="actions">
+        <button id="themeBtn" class="btn ghost">Modo claro</button>
+        <a href="#diagnostico" class="btn primary">Iniciar diagnóstico</a>
+      </div>
+    </header>
+
+    <section id="inicio" class="hero panel">
+      <div>
+        <span class="pill">PWA educativa · demo navegable</span>
+        <h2>Rutas breves, práctica segura y recursos para integrar IA en Ingeniería Civil.</h2>
+        <p>Este prototipo simula el flujo completo: diagnóstico, ruta personalizada, microcredenciales con videos de YouTube, laboratorio sandbox e integración curricular.</p>
+        <div class="hero-actions">
+          <a href="#diagnostico" class="btn primary">Empezar ahora</a>
+          <a href="#microcredenciales" class="btn ghost">Ver módulos</a>
+        </div>
+      </div>
+      <div class="stats-card">
+        <h3>Estado del docente</h3>
+        <div class="metric"><span>Progreso general</span><strong id="progressText">42%</strong></div>
+        <div class="bar"><span style="width:42%"></span></div>
+        <div class="mini-grid">
+          <div><strong>6</strong><span>módulos</span></div>
+          <div><strong>72 min</strong><span>duración</span></div>
+          <div><strong>3</strong><span>recursos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="panel">
+      <div class="section-title">
+        <span class="number">1</span>
+        <div><h2>Diagnóstico inicial</h2><p>Selecciona tus respuestas para generar una ruta sugerida.</p></div>
+      </div>
+      <form class="diagnostic" id="diagnosticForm">
+        <label>¿Cuál es tu nivel de experiencia con IA educativa?
+          <select id="nivel">
+            <option value="basico">Básico</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+        </label>
+        <label>¿Qué curso de Ingeniería Civil deseas fortalecer?
+          <select id="curso">
+            <option>Mecánica de Suelos</option>
+            <option>Construcción</option>
+            <option>Hidráulica</option>
+            <option>Gestión de Proyectos</option>
+          </select>
+        </label>
+        <label>¿Cuál es tu objetivo principal?
+          <select id="objetivo">
+            <option>Diseñar actividades con IA</option>
+            <option>Crear rúbricas auténticas</option>
+            <option>Usar simuladores</option>
+            <option>Mejorar retroalimentación</option>
+          </select>
+        </label>
+        <button type="submit" class="btn primary">Generar ruta</button>
+      </form>
+      <div id="routeResult" class="result hidden"></div>
+    </section>
+
+    <section id="dashboard" class="panel">
+      <div class="section-title">
+        <span class="number purple">2</span>
+        <div><h2>Dashboard asincrónico</h2><p>Seguimiento de avance y actividades sugeridas.</p></div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card"><span>Microcredenciales activas</span><strong>6</strong></div>
+        <div class="dash-card"><span>Completadas</span><strong>2</strong></div>
+        <div class="dash-card"><span>Mentorías simuladas</span><strong>1</strong></div>
+        <div class="dash-card"><span>Certificado</span><strong>En proceso</strong></div>
+      </div>
+    </section>
+
+    <section id="microcredenciales" class="panel">
+      <div class="section-title between">
+        <div class="inline-title"><span class="number blue">3</span><div><h2>Microcredenciales</h2><p>Abre cada módulo para ver videos reales de YouTube.</p></div></div>
+        <button class="btn ghost" onclick="abrirGestorVideos()">Añadir videos</button>
+      </div>
+      <div class="cards" id="moduleCards"></div>
+    </section>
+
+    <section id="sandbox" class="panel sandbox">
+      <div class="section-title">
+        <span class="number orange">4</span>
+        <div><h2>Laboratorio Sandbox</h2><p>Espacio seguro para practicar, consultar y recibir mentoría entre pares.</p></div>
+      </div>
+      <div class="sandbox-grid">
+        <div class="safe-banner">🔒 Espacio seguro y ético para practicar sin afectar datos reales.</div>
+        <div class="video-box"><div class="avatar">MG</div><p>Mentora: María Gómez</p></div>
+        <div class="console"><pre>function calcularCarga(viga) {
+  return viga.longitud * viga.peso;
+}
+console.log("Práctica segura");</pre><button class="btn primary small">Ejecutar</button></div>
+      </div>
+    </section>
+
+    <section id="integracion" class="panel">
+      <div class="section-title">
+        <span class="number green">5</span>
+        <div><h2>Integración curricular</h2><p>Selecciona una unidad piloto y descarga una guía simulada.</p></div>
+      </div>
+      <div class="integration-box">
+        <select id="unidad">
+          <option>Mecánica de Suelos: Ensayo granulométrico</option>
+          <option>Construcción: Planificación de obra</option>
+          <option>Hidráulica: Flujo en canales</option>
+          <option>Gestión: Cronograma con IA</option>
+        </select>
+        <button class="btn primary" onclick="descargarGuia()">Descargar guía PDF</button>
+      </div>
+    </section>
+
+    <section id="admin" class="panel">
+      <div class="section-title">
+        <span class="number">6</span>
+        <div><h2>Gestor de videos por módulo</h2><p>Sección simulada para añadir enlaces de YouTube a cada microcredencial.</p></div>
+      </div>
+      <div class="admin-box">
+        <select id="adminModulo"></select>
+        <input id="videoTitulo" type="text" placeholder="Título del video" />
+        <input id="videoUrl" type="url" placeholder="URL de YouTube: https://www.youtube.com/watch?v=..." />
+        <button class="btn primary" onclick="agregarVideo()">Añadir video</button>
+      </div>
+      <p class="note">Los videos añadidos se guardan en el navegador mediante localStorage. En GitHub Pages funcionará como demo local.</p>
+    </section>
+  </main>
+
+  <div id="modalVideos" class="modal">
+    <div class="modal-content">
+      <button class="close" onclick="cerrarModulo()">×</button>
+      <h2 id="tituloModulo">Videos del módulo</h2>
+      <p id="descripcionModulo"></p>
+      <div id="listaVideos" class="videos-grid"></div>
+    </div>
+  </div>
+
+  <div id="modalAdmin" class="modal">
+    <div class="modal-content small-modal">
+      <button class="close" onclick="cerrarGestorVideos()">×</button>
+      <h2>Añadir videos</h2>
+      <p>También puedes usar la sección Admin al final de la página.</p>
+      <div class="admin-box single">
+        <select id="adminModuloModal"></select>
+        <input id="videoTituloModal" type="text" placeholder="Título del video" />
+        <input id="videoUrlModal" type="url" placeholder="URL de YouTube" />
+        <button class="btn primary" onclick="agregarVideoDesdeModal()">Guardar video</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
